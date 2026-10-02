@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Seat Map</title>
+    <style>
+        :root 
+        {
+          --primary: #1e40af;
+          --bg: #f1f5f9;
+          --card-bg: #ffffff;
+          --text: #0f172a;
+          --border: #cbd5e1;
+        }
+
+        body 
+        {
+          font-family: sans-serif;
+          background: var(--bg);
+          color: var(--text);
+          padding: 20px;
+        }
+
+        nav 
+        {
+          display: flex;
+          gap: 10px;
+          margin-bottom: 20px;
+        }
+
+        nav a.nav-btn 
+        {
+          background: #e2e8f0;
+          padding: 10px 18px;
+          border-radius: 6px;
+          font-weight: 600;
+          color: var(--text);
+          text-decoration: none;
+        }
+
+        nav a.nav-btn.active 
+        {
+          background: var(--primary);
+          color: white;
+        }
+
+        .page 
+        {
+          background: var(--card-bg);
+          padding: 25px;
+          border-radius: 8px;
+          max-width: 600px;
+          margin: 0 auto;
+        }
+
+        .seat 
+        {
+          width: 45px;
+          height: 45px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 6px;
+          font-weight: bold;
+        }
+
+        .seat.available 
+        {
+          background-color: #bbf7d0;
+          border: 2px solid #22c55e;
+          color: #14532d;
+        }
+
+        .seat.occupied 
+        {
+          background-color: #fecaca;
+          border: 2px solid #ef4444;
+          color: #7f1d1d;
+        }
+
+        .form-group 
+        {
+          margin-bottom: 15px;
+        }
+
+        label 
+        {
+          display: block;
+          margin-bottom: 5px;
+          font-weight: 600;
+        }
+
+        input 
+        {
+          width: 100%;
+          padding: 10px;
+          border: 1px solid var(--border);
+          border-radius: 6px;
+          box-sizing: border-box;
+        }
+
+        button.btn-submit 
+        {
+          background-color: var(--primary);
+          color: white;
+          border: none;
+          padding: 12px;
+          width: 100%;
+          border-radius: 6px;
+          font-weight: bold;
+          cursor: pointer;
+        }
+
+        .divider 
+        {
+          margin: 25px 0;
+          border-top: 1px solid var(--border);
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <h2>Airplane Seat Map</h2>
+        <nav>
+            <a href="seatMap" class="nav-btn active">Seat Map</a>
+            <a href="/RequestSeat.html" class="nav-btn">Request Seat</a>
+            <a href="/LayoutManager.html" class="nav-btn">Layout Manager</a>
+        </nav>
+        
+        <form action="/searchPassenger" method="get">
+            <label for="name">Passenger Name:</label>
+            <input type="text" id="name" name="name" required>
+            <button type="submit" style="margin-top:10px;">Search</button>
+        </form>
+
+        <p><strong>Status:</strong> {{Output}}</p>
+        <hr>
+        <h3>Seating Grid</h3>
+        <div class="seat-grid">
+            {Seating Grid Output}
+        </div>
+    </div>
+</body>
+</html>

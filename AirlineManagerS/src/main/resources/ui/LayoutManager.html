@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Layout Manager</title>
+    <style>
+        :root 
+        {
+          --primary: #1e40af;
+          --bg: #f1f5f9;
+          --card-bg: #ffffff;
+          --text: #0f172a;
+          --border: #cbd5e1;
+        }
+
+        body 
+        {
+          font-family: sans-serif;
+          background: var(--bg);
+          color: var(--text);
+          padding: 20px;
+        }
+
+        nav 
+        {
+          display: flex;
+          gap: 10px;
+          margin-bottom: 20px;
+        }
+
+        nav a.nav-btn 
+        {
+          background: #e2e8f0;
+          padding: 10px 18px;
+          border-radius: 6px;
+          font-weight: 600;
+          color: var(--text);
+          text-decoration: none;
+        }
+
+        nav a.nav-btn.active 
+        {
+          background: var(--primary);
+          color: white;
+        }
+
+        .page 
+        {
+          background: var(--card-bg);
+          padding: 25px;
+          border-radius: 8px;
+          max-width: 600px;
+          margin: 0 auto;
+        }
+
+        .form-group 
+        {
+          margin-bottom: 15px;
+        }
+
+        label 
+        {
+          display: block;
+          margin-bottom: 5px;
+          font-weight: 600;
+        }
+
+        input 
+        {
+          width: 100%;
+          padding: 10px;
+          border: 1px solid var(--border);
+          border-radius: 6px;
+          box-sizing: border-box;
+        }
+
+        button.btn-submit 
+        {
+          background-color: var(--primary);
+          color: white;
+          border: none;
+          padding: 12px;
+          width: 100%;
+          border-radius: 6px;
+          font-weight: bold;
+          cursor: pointer;
+        }
+
+        .divider 
+        {
+          margin: 25px 0;
+          border-top: 1px solid var(--border);
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <h2>Layout Manager</h2>
+        <nav>
+            <a href="/SeatMap.html" class="nav-btn">Seat Map</a>
+            <a href="/RequestSeat.html" class="nav-btn">Request Seat</a>
+            <a href="/LayoutManager.html" class="nav-btn active">Layout Manager</a>
+        </nav>
+        
+        <h2>Add Seat</h2>
+        <form action="/addSeat" method="post">
+            <div class="form-group">
+                <label>Seat Number:</label>
+                <input type="text" name="seatNum" placeholder="e.g. 3A" required>
+            </div>
+            <div class="form-group">
+                <label>Class:</label>
+                <input type="text" name="class" placeholder="Economy">
+            </div>
+            <button type="submit" class="btn-submit">Add Seat</button>
+        </form>
+
+        <div class="divider"></div>
+
+        <h2>Remove Seat</h2>
+        <form action="/removeSeat" method="post">
+            <div class="form-group">
+                <label>Seat Number:</label>
+                <input type="text" name="seatNum" placeholder="e.g. 3A" required>
+            </div>
+            <button type="submit" class="btn-submit">Remove Seat</button>
+        </form>
+    </div>
+</body>
+</html>
